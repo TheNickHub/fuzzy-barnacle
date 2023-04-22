@@ -1,62 +1,27 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Test</title>
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-      crossorigin=""
-    />
-
+    <title>Search Hospitals in My County</title>
+    
     <link rel="stylesheet" href="style.css" />
-
-    <script
-      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-      crossorigin=""
-    ></script>
   </head>
   <body>
-    <div class="wrapper">
-      <header class="header">
-        <h1 class="box">FUZZY</h1>
-      </header>
-      <div class="container">
-        <div class="left_section box">
-          <form
-            class="box main_form"
-            action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
-          >
-            <div>
-              <label for="hosp">Hospital Name</label>
-              <input type="text" name="hosp" id="hosp" />
-            </div>
-            <div class="buttons">
-              <button type="button" id="data_load">
-                Load County hospitals
-              </button>
-            </div>
-          </form>
-          <div>
-            <h2>Hospitals Near You</h2>
-            <ol>
-                <li></li>
-            </ol>
-          </div>
-        </div>
-      </div>
-      <footer class="footer">
-        <a
-          href="https://data.princegeorgescountymd.gov/Health/County-Hospitals/9r2z-mnpp"
-          target="_blank"
-          rel="noopener noreferrer"
-          >PG County Data</a
-        >
-      </footer>
+    <h1>Search Hospitals in My County</h1>
+    <div>
+      <label for="search">Search:</label>
+      <input type="text" id="search" name="search" />
+      <button id="searchBtn">Search</button>
     </div>
+    <div id="results"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf%405.1.6/turf.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mapbox/mapbox-sdk/services/geocoding-v5.min.js"></script>
+    <script src="search_hospitals.js"></script>
   </body>
 </html>

@@ -1,11 +1,24 @@
 // Define API endpoint URL
-const apiUrl = "https://data.medicare.gov/resource/rbry-mqwu.json";
+const apiUrl =
+  "https://data.princegeorgescountymd.gov/resource/county-hospitals.json";
 
 // Get references to DOM elements
-const searchInput = document.getElementById("search");
 const searchBtn = document.getElementById("searchBtn");
 const resultsDiv = document.getElementById("results");
+const mapDiv = document.getElementById("map");
 
+// Initialize map
+let map = null;
+
+function initMap() {
+  map = L.map(mapDiv).setView([38.8836, -76.9818], 10);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+  }).addTo(map);
+}
+
+// Function to display search results on the page
 function displayResults(hospitals) {
   // Clear previous search results
   resultsDiv.innerHTML = "";
@@ -21,33 +34,48 @@ function displayResults(hospitals) {
   hospitals.forEach((hospital) => {
     const li = document.createElement("li");
 
-    // Create a div to hold the hospital information
-    const div = document.createElement("div");
+    // Use hospital location data to create a marker on the map
+    const marker = L.marker([hospital.latitude, hospital.longitude]).addTo(
+      map
+    );
+    marker.bindPopup(hospital.facility_name);
 
-    // Create an image element for the hospital
-    const img = document.createElement("img");
-    img.src = hospital.photo;
-    img.alt = `${hospital.provider_name} Photo`;
-    img.width = 150;
-    div.appendChild(img);
+    // Add hospital name to list item
+    li.textContent = hospital.facility_name;
 
-    // Create a p element for the hospital name
-    const name = document.createElement("p");
-    name.textContent = hospital.provider_name;
-    div.appendChild(name);
-
-    // Create a p element for the hospital phone number
-    const phone = document.createElement("p");
-    phone.textContent = hospital.phone_number;
-    div.appendChild(phone);
-
-    // Create a p element for the hospital address
-    const address = document.createElement("p");
-    address.textContent = `${hospital.address}, ${hospital.city}, ${hospital.state} ${hospital.zip_code}`;
-    div.appendChild(address);
-
-    li.appendChild(div);
     ul.appendChild(li);
   });
+
+  // Add list of hospitals to results container
   resultsDiv.appendChild(ul);
 }
+
+// Function to handle search button click
+function searchHospitals() {
+  const searchInput = document.getElementById("search");
+  const searchTerm = searchInput.value;
+
+  // Fetch hospital data from API
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      // Filter hospital data based on search term
+      const hospitals = data.filter((hospital) => {
+        return hospital.facility_name
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+
+      // Display search results on the page
+      displayResults(hospitals);
+    })
+    .catch((error) => {
+      console.error("Error fetching hospital data:", error);
+    });
+}
+
+// Add click listener to search button
+searchBtn.addEventListener("click", searchHospitals);
+
+// Call initMap function to initialize map
+initMap();
