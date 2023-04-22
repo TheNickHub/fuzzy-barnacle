@@ -6,7 +6,6 @@ const searchInput = document.getElementById("search");
 const searchBtn = document.getElementById("searchBtn");
 const resultsDiv = document.getElementById("results");
 
-// Function to display search results on the page
 function displayResults(hospitals) {
   // Clear previous search results
   resultsDiv.innerHTML = "";
@@ -21,32 +20,34 @@ function displayResults(hospitals) {
   const ul = document.createElement("ul");
   hospitals.forEach((hospital) => {
     const li = document.createElement("li");
-    li.textContent = `${hospital.provider_name} - ${hospital.address}`;
+
+    // Create a div to hold the hospital information
+    const div = document.createElement("div");
+
+    // Create an image element for the hospital
+    const img = document.createElement("img");
+    img.src = hospital.photo;
+    img.alt = `${hospital.provider_name} Photo`;
+    img.width = 150;
+    div.appendChild(img);
+
+    // Create a p element for the hospital name
+    const name = document.createElement("p");
+    name.textContent = hospital.provider_name;
+    div.appendChild(name);
+
+    // Create a p element for the hospital phone number
+    const phone = document.createElement("p");
+    phone.textContent = hospital.phone_number;
+    div.appendChild(phone);
+
+    // Create a p element for the hospital address
+    const address = document.createElement("p");
+    address.textContent = `${hospital.address}, ${hospital.city}, ${hospital.state} ${hospital.zip_code}`;
+    div.appendChild(address);
+
+    li.appendChild(div);
     ul.appendChild(li);
   });
   resultsDiv.appendChild(ul);
-}
-
-// Function to handle search
-async function search() {
-  // Get user search query
-  const query = searchInput.value.trim();
-
-  // If search query is empty, display a message
-  if (query === "") {
-    resultsDiv.innerHTML = "<p>Please enter a search term.</p>";
-    return;
-  }
-
-  // Fetch hospital data from API
-  const response = await fetch(apiUrl);
-  const data = await response.json();
-
-  // Filter hospitals based on search query
-const filteredData = data.filter((hospital) => {
-    return hospital.provider_name.toLowerCase().includes(query.toLowerCase());
-  });
-  
-  // Display search results on the page
-  displayResults(filteredData);
 }
