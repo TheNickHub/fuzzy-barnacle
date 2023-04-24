@@ -67,9 +67,9 @@ async function mainEvent() {
   const generateListButton = document.querySelector("#generate");
   const textField = document.querySelector("#hosp");
 
-  const loadAnimation = document.querySelector("#data_load_animation");
-  loadAnimation.style.display = "none";
-  generateListButton.classList.add("hidden");
+  //const loadAnimation = document.querySelector("#data_load_animation");
+  //loadAnimation.style.display = "none";
+  //generateListButton.classList.add("hidden");
 
   const carto = initMap();
 
