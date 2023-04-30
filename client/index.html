@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -30,12 +29,16 @@
           <h2>Input Name</h2>
           <form
             class="box main_form"
-            action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
-          >
+            action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json">
             <div>
-              <label for="hosp">County Name</label>
-              <input type="text" name="hosp" id="hosp" />
-            </div>
+              <label for="dropdown">County Name</label>
+              <select id="dropdown" name="dropdown">
+                <option value="Bowie">Option 1</option>
+                <option value="Laurel">Option 2</option>
+                <option value="Lanham">Option 3</option>
+              </select>
+              <input type="submit" value="Submit">
+            </form>
             <div class="buttons">
               <button type="button" id="data_load">
                 Load County hospitals
@@ -46,12 +49,14 @@
           <div class="right_section box">
             <h2>Hospitals Near You</h2>
             <div id="map" class="box"></div>
-            <ol class="box" id="hospital_list"></ol>
-              List of Hospitals in County
-              <ol>
-              <li></li>
-            </ol>
-          <div>
+            <ol class="box" id="hospital_list">List of Hospitals in PG County</ol>
+            <div class="lds-ellipsis" id="load_animation">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
       </div>
       <footer class="footer">
