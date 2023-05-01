@@ -21,7 +21,7 @@
     ></script>
   </head>
   <body>
-    <div class="wrapper"></div>
+    <div class="wrapper">
       <header class="header">
         <h1 class="box">FUZZY</h1>
       </header>
@@ -41,7 +41,6 @@
                 <option value="option4">Hyattsville</option>
               </select>
               <input type="submit" value="Submit">
-            </form>
             <div class="buttons">
               <button type="button" id="data_load">Load County hospitals</button>
             </div>
@@ -49,7 +48,9 @@
           <div class="right_section box">
             <h2>Hospitals Near You</h2>
             <div id="map" class="box"></div>
-            <ol class="box" id="hospital_list">List of Hospitals in PG County</ol>
+            <ol class="box" id="hospital_list"> 
+              <li>List of Hospitals in PG County</li>
+            </ol>
             <div class="lds-ellipsis" id="load_animation">
               <div></div>
               <div></div>
@@ -69,4 +70,5 @@
       </footer>
     </div>
     <script src="script.js"></script>
+  </body>
 </html>
