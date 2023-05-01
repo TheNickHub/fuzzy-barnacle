@@ -28,6 +28,7 @@
       </header>
       <div class="container">
         <div class="left_section box">
+<<<<<<< Updated upstream
           <div>
             <h2>Input Name</h2>
             <form
@@ -35,6 +36,16 @@
               action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json">
               <label for="dropdown">City Name</label>
               <select id="dropdown" name="dropdown">
+=======
+          <h2>Input Name</h2>
+          <form class="box main_form"
+            action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
+            >
+          </form>
+            <div>
+              <label for="filter">City Name</label>
+              <select id="filter" name="filter">
+>>>>>>> Stashed changes
                 <option value="option1">Bowie</option>
                 <option value="option2">Laurel</option>
                 <option value="option3">Lanham</option>
@@ -43,6 +54,7 @@
                 <option value="option6">Joint Base Andrews</option>
                 <option value="option7">Fort Washington</option>
               </select>
+<<<<<<< Updated upstream
               <input type="submit" value="Submit" />
               <div class="buttons">
                 <button type="button" id="data_load">
@@ -51,6 +63,13 @@
               </div>
             </form>
           </div>
+=======
+              <button type="submit">Apply</button>
+            <div class="buttons">
+              <button type="button" id="data_load">Load City Hospitals</button>
+            </div>
+        </div>
+>>>>>>> Stashed changes
           <div class="right_section box">
             <h2>Hospitals Near You</h2>
             <div id="map" class="box"></div>
