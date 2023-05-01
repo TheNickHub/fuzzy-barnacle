@@ -66,6 +66,7 @@ async function mainEvent() {
   const clearDataButton = document.querySelector("#data_clear");
   const generateListButton = document.querySelector("#generate");
   const textField = document.querySelector("#hosp");
+  const filterButton = document.querySelector('#filter')
 
   //const loadAnimation = document.querySelector("#data_load_animation");
   //loadAnimation.style.display = "none";
@@ -92,6 +93,20 @@ async function mainEvent() {
       "https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
     );
 
+    filterDataButton.addEventListener('click', (event) => {
+      console.log('clicked FilterButton');
+      
+      const formData = new FormData(mainForm);
+      const formProps = Object.fromEntries(formData);
+      
+      console.log(formProps);
+  
+      const newList = filterList(currentList, formProps.filter);
+      console.log(newList);
+      injectHTML(newList);
+  
+    })
+
     // This changes the response from the GET into data we can use - an "object"
     const storedList = await results.json();
     localStorage.setItem("storedData", JSON.stringify(storedList));
@@ -105,7 +120,7 @@ async function mainEvent() {
     // console.table(storedList);
   });
 
-  generateListButton.addEventListener("click", (event) => {
+  /*generateListButton.addEventListener("click", (event) => {
     console.log("generate new list");
     currentList = cutHospitalList(parsedData);
     console.log(currentList);
@@ -125,7 +140,7 @@ async function mainEvent() {
     console.log("clear browser data");
     localStorage.clear();
     console.log("localStorage Check", localStorage.getItem("storedData"));
-  });
+  });*/
 }
 
 document.addEventListener("DOMContentLoaded", async () => mainEvent()); // the async keyword means we can make API requests
