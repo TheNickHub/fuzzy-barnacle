@@ -1,17 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Final Project INST377</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzzy</title>
 
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-      crossorigin=""/>
+      crossorigin="">
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 
     <script
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
@@ -20,16 +21,17 @@
     ></script>
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper"></div>
       <header class="header">
-        <h1 class="box">Nicholas Shen & Lena Mastracci Final INST377</h1>
+        <h1 class="box">FUZZY</h1>
       </header>
       <div class="container">
         <div class="left_section box">
           <h2>Input Name</h2>
-          <form
-            class="box main_form"
-            action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json">
+          <form class="box main_form"
+            action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
+            >
+          </form>
             <div>
               <label for="dropdown">County Name</label>
               <select id="dropdown" name="dropdown">
@@ -38,26 +40,20 @@
                 <option value="Lanham">Option 3</option>
               </select>
               <input type="submit" value="Submit">
-            </form>
             <div class="buttons">
               <button type="button" id="data_load">
                 Load County hospitals
               </button>
             </div>
-          </form>
         </div>
-          <div class="right_section box">
-            <h2>Hospitals Near You</h2>
-            <div id="map" class="box"></div>
-            <ol class="box" id="hospital_list">List of Hospitals in PG County</ol>
-            <div class="lds-ellipsis" id="load_animation">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+        <div class="right_section box">
+          <h2>Hospitals Near You</h2>
+          <div id="map" class="box"></div>
+          <ol class="box" id="hospital_list">
+            <li>List of Hospitals in PG County</li>
+            </ol>
+            <div class="lds-ellipsis" id="load_animation"><div></div><div></div><div></div><div></div></div>
           </div>
-        </div>
       </div>
       <footer class="footer">
         <a
@@ -69,5 +65,4 @@
       </footer>
     </div>
     <script src="script.js"></script>
-  </body>
 </html>
