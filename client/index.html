@@ -32,9 +32,11 @@
             <h2>Input Name</h2>
             <form
               class="box main_form"
-              action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json">
-              <label for="dropdown">City Name</label>
-              <select id="dropdown" name="dropdown">
+              action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
+              >
+             
+              <label for="filter">City Name</label>
+              <select id="filter" name="filter">
                 <option value="option1">Bowie</option>
                 <option value="option2">Laurel</option>
                 <option value="option3">Lanham</option>
@@ -43,7 +45,8 @@
                 <option value="option6">Joint Base Andrews</option>
                 <option value="option7">Fort Washington</option>
               </select>
-              <input type="submit" value="Submit" />
+              <button type="submit">Apply</button>
+              
               <div class="buttons">
                 <button type="button" id="data_load">
                   Load County hospitals
