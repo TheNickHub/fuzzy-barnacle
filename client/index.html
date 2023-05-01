@@ -33,27 +33,30 @@
             >
           </form>
             <div>
-              <label for="dropdown">County Name</label>
+              <label for="dropdown">City Name</label>
               <select id="dropdown" name="dropdown">
-                <option value="Bowie">Option 1</option>
-                <option value="Laurel">Option 2</option>
-                <option value="Lanham">Option 3</option>
+                <option value="option1">Bowie</option>
+                <option value="option2">Laurel</option>
+                <option value="option3">Lanham</option>
               </select>
               <input type="submit" value="Submit">
+            </form>
             <div class="buttons">
-              <button type="button" id="data_load">
-                Load County hospitals
-              </button>
+              <button type="button" id="data_load">Load County hospitals</button>
             </div>
         </div>
-        <div class="right_section box">
-          <h2>Hospitals Near You</h2>
-          <div id="map" class="box"></div>
-          <ol class="box" id="hospital_list">
-            <li>List of Hospitals in PG County</li>
-            </ol>
-            <div class="lds-ellipsis" id="load_animation"><div></div><div></div><div></div><div></div></div>
+          <div class="right_section box">
+            <h2>Hospitals Near You</h2>
+            <div id="map" class="box"></div>
+            <ol class="box" id="hospital_list">List of Hospitals in PG County</ol>
+            <div class="lds-ellipsis" id="load_animation">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
+        </div>
       </div>
       <footer class="footer">
         <a
