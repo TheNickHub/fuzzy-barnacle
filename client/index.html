@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>FUZZY</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
       crossorigin=""
-    >
+    />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <script
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
@@ -29,37 +31,34 @@
       <div class="container">
         <div class="left_section box">
           <div>
-            <h2>Input Name</h2>
+            <h2>Choose Your City</h2>
             <form
               class="box main_form"
-              action="https://data.princegeorgescountymd.gov/resource/county-hospitals.json"
-              >
-             
-              <label for="filter">City Name</label>
-              <select id="filter" name="filter">
-                <option value="option1">Bowie</option>
-                <option value="option2">Laurel</option>
-                <option value="option3">Lanham</option>
-                <option value="option4">Hyattsville</option>
-                <option value="option5">Clinton</option>
-                <option value="option6">Joint Base Andrews</option>
-                <option value="option7">Fort Washington</option>
+              
+            >
+              <label for="cities">Cities in MD</label>
+              <select id="cities" name="cities">
+                <option value="">--Select a City--</option>
               </select>
-              <button type="submit">Apply</button>
 
+  
               <div class="buttons">
-                <button type="button" id="data_load">
+                <button type="submit" id = "generate">Apply</button>
+                <button id="clear">Clear</button>
+                <!-- <button type="button" id="data_load">
                   Load County hospitals
-                </button>
+                </button> -->
               </div>
             </form>
           </div>
         </div>
         <div class="right_section box">
-          <h2>Hospitals Near You</h2>
+          <h2>Hospitals in Your City</h2>
           <div id="map" class="box"></div>
-          <ol class="box" id="hospital_list">
-            <li>List of Hospitals in PG County</li>
+          <div class="box">
+          <h3>List of Hospitals in City</h3>
+          <ol class="box results" id="hospital_list">
+            <li></li>
           </ol>
           <div class="lds-ellipsis" id="load_animation">
             <div></div>
@@ -69,13 +68,13 @@
           </div>
         </div>
       </div>
-      <footer class="footer">
+      <footer class="footer box">
         <a
-          href="https://data.princegeorgescountymd.gov/Health/County-Hospitals/9r2z-mnpp"
+          href="https://www.communitybenefitinsight.org/?page=info.data_api"
           target="_blank"
           rel="noopener noreferrer"
-          >PG County Data</a
-        >
+          >MD City Data
+        </a>
       </footer>
     </div>
     <script src="script.js"></script>
